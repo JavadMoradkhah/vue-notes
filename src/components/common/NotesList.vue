@@ -1,11 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { defineProps } from 'vue';
 import Note from './Note.vue';
 
-const notesBody =
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam non corporis assumenda fugiat soluta debitis molestiae autem earum dolor asperiores?';
-
-const notes = ref([{ id: 1, title: 'Test Note 1', body: notesBody }]);
+const props = defineProps(['notes']);
 </script>
 
 <template>
