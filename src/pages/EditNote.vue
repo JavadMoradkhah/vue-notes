@@ -49,10 +49,10 @@ async function onFormSubmit(e) {
 
       <form @submit.prevent="onFormSubmit">
         <fieldset>
-          <label class="block pb-1 text-gray-700" for="title-input">Title</label>
+          <label class="block pb-1 text-gray-700 dark:text-gray-300" for="title-input">Title</label>
           <input
             id="title-input"
-            class="block w-full px-4 py-2 border rounded-md outline-none focus:border-primary"
+            class="block w-full px-4 py-2 dark:text-white dark:bg-gray-800 border dark:border-gray-700 rounded-md outline-none focus:border-primary"
             name="title"
             type="text"
             placeholder="Enter the title..."
@@ -60,10 +60,10 @@ async function onFormSubmit(e) {
           />
         </fieldset>
         <fieldset class="mt-3">
-          <label class="block pb-1 text-gray-700" for="body-input">Body</label>
+          <label class="block pb-1 text-gray-700 dark:text-gray-300" for="body-input">Body</label>
           <textarea
             id="body-input"
-            class="block w-full min-h-[160px] px-4 py-2 border rounded-md outline-none focus:border-primary"
+            class="block w-full min-h-[160px] px-4 py-2 dark:text-white dark:bg-gray-800 border dark:border-gray-700 rounded-md outline-none focus:border-primary"
             placeholder="Type note body..."
             name="body"
             :value="state.form.body"

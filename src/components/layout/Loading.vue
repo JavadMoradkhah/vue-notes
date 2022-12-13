@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center text-primary bg-white"
+    class="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center text-primary bg-white dark:bg-darkbg"
   >
     <svg width="48" height="48" viewBox="0 0 24 24" class="animate-spin">
       <g fill="currentColor">

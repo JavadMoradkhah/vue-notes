@@ -6,6 +6,6 @@ const props = defineProps(['text']);
 
 <template>
   <div class="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-    <p class="text-center">{{ props.text }}</p>
+    <p class="text-center dark:text-gray-300">{{ props.text }}</p>
   </div>
 </template>

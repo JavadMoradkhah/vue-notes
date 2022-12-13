@@ -71,8 +71,8 @@ async function deleteNote() {
       </div>
     </div>
 
-    <h1 class="text-3xl text-gray-800 font-bold">{{ state.note.title }}</h1>
+    <h1 class="text-3xl text-gray-800 dark:text-white font-bold">{{ state.note.title }}</h1>
 
-    <p class="mt-4">{{ state.note.body }}</p>
+    <p class="mt-4 dark:text-gray-300">{{ state.note.body }}</p>
   </main>
 </template>
