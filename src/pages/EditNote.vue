@@ -3,6 +3,7 @@ import Api from '../api/Api';
 import { reactive, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import Loading from '../components/layout/Loading.vue';
+import BackButton from '../components/common/BackButton.vue';
 
 const state = reactive({ form: { title: '', body: '' }, loading: true });
 
@@ -42,7 +43,10 @@ async function onFormSubmit(e) {
   <main>
     <Loading v-if="state.loading" />
     <section class="max-w-2xl mx-auto px-4 py-8">
-      <h1 class="mb-4 text-primary text-2xl text-center font-bold">Edit Note</h1>
+      <BackButton url="/" />
+
+      <h1 class="my-4 text-primary text-2xl text-center font-bold">Edit Note</h1>
+
       <form @submit.prevent="onFormSubmit">
         <fieldset>
           <label class="block pb-1 text-gray-700" for="title-input">Title</label>

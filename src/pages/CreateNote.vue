@@ -1,6 +1,7 @@
 <script setup>
 import Api from '../api/Api';
 import { useRouter } from 'vue-router';
+import BackButton from '../components/common/BackButton.vue';
 
 const router = useRouter();
 
@@ -20,7 +21,10 @@ async function onFormSubmit(e) {
 <template>
   <main>
     <section class="max-w-2xl mx-auto px-4 py-8">
-      <h1 class="mb-4 text-primary text-2xl text-center font-bold">Create Note</h1>
+      <BackButton url="/" />
+
+      <h1 class="my-4 text-primary text-2xl text-center font-bold">Create Note</h1>
+
       <form @submit.prevent="onFormSubmit">
         <fieldset>
           <label class="block pb-1 text-gray-700" for="title-input">Title</label>
