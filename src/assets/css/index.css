@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.layout-container {
+  @apply max-w-7xl mx-auto;
+}
+
 body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  @apply bg-gray-50;
 }
