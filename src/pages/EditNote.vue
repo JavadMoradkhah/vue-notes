@@ -25,20 +25,6 @@ async function fetchNote() {
   }
 }
 
-async function deleteNote() {
-  try {
-    state.loading = true;
-
-    await Api.delete(`/${route.params.id}`);
-
-    router.push('/');
-  } catch (error) {
-    console.log(error);
-  } finally {
-    state.loading = false;
-  }
-}
-
 async function onFormSubmit(e) {
   const title = e.target.title.value;
   const body = e.target.body.value;
@@ -84,12 +70,6 @@ async function onFormSubmit(e) {
           type="submit"
         >
           Save
-        </button>
-        <button
-          class="block w-full mt-2 px-4 py-2 text-white bg-rose-600 rounded-md active:bg-rose-700"
-          @click="deleteNote"
-        >
-          Delete
         </button>
       </form>
     </section>
