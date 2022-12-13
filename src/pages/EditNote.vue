@@ -2,6 +2,7 @@
 import Api from '../api/Api';
 import { reactive, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import { showSuccessToast, showErrorToast } from '../util/toast';
 import Loading from '../components/layout/Loading.vue';
 import BackButton from '../components/common/BackButton.vue';
 
@@ -20,21 +21,26 @@ async function fetchNote() {
 
     state.form = { title: data.title, body: data.body };
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
   } finally {
     state.loading = false;
   }
 }
 
 async function onFormSubmit(e) {
+  state.loading = true;
+
   const title = e.target.title.value;
   const body = e.target.body.value;
 
   try {
     await Api.put(`/${route.params.id}`, { title, body });
+    showSuccessToast('Note updated successfully');
     router.push('/');
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
+  } finally {
+    state.loading = false;
   }
 }
 </script>

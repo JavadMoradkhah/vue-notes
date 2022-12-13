@@ -1,6 +1,7 @@
 <script setup>
 import Api from '../api/Api';
 import { useRouter } from 'vue-router';
+import { showSuccessToast, showErrorToast } from '../util/toast';
 import BackButton from '../components/common/BackButton.vue';
 
 const router = useRouter();
@@ -11,9 +12,10 @@ async function onFormSubmit(e) {
 
   try {
     await Api.post('/', { title, body });
+    showSuccessToast('Note created successfully');
     router.push('/');
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
   }
 }
 </script>

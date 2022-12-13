@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, reactive } from 'vue';
+import { showErrorToast } from '../util/toast';
 import Api from '../api/Api';
 import NotesList from '../components/common/NotesList.vue';
 import AddButton from '../components/common/AddButton.vue';
@@ -13,7 +14,7 @@ async function fetchNotes() {
     const { data } = await Api.get('/');
     state.notes = data;
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
   } finally {
     state.loading = false;
   }

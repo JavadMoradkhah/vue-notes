@@ -2,6 +2,7 @@
 import Api from '../api/Api';
 import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { showSuccessToast, showErrorToast } from '../util/toast';
 import Loading from '../components/layout/Loading.vue';
 import DeleteIcon from '../components/icon/DeleteIcon.vue';
 import EditIcon from '../components/icon/EditIcon.vue';
@@ -22,7 +23,7 @@ async function fetchNote() {
 
     state.note = { title: data.title, body: data.body };
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
   } finally {
     state.loading = false;
   }
@@ -34,9 +35,11 @@ async function deleteNote() {
 
     await Api.delete(`/${route.params.id}`);
 
+    showSuccessToast('Note deleted successfully');
+
     router.push('/');
   } catch (error) {
-    console.log(error);
+    showErrorToast(error.message);
   } finally {
     state.loading = false;
   }
