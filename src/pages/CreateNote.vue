@@ -1,8 +1,27 @@
+<script setup>
+import Api from '../api/Api';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+async function onFormSubmit(e) {
+  const title = e.target.title.value;
+  const body = e.target.body.value;
+
+  try {
+    await Api.post('/', { title, body });
+    router.push('/');
+  } catch (error) {
+    console.log(error);
+  }
+}
+</script>
+
 <template>
   <main>
     <section class="max-w-2xl mx-auto px-4 py-8">
       <h1 class="mb-4 text-primary text-2xl text-center font-bold">Create Note</h1>
-      <form @submit.prevent>
+      <form @submit.prevent="onFormSubmit">
         <fieldset>
           <label class="block pb-1 text-gray-700" for="title-input">Title</label>
           <input
@@ -18,7 +37,7 @@
           <textarea
             id="body-input"
             class="block w-full min-h-[100px] px-4 py-2 border rounded-md outline-none focus:border-primary"
-            placeholder="Type post body..."
+            placeholder="Type note body..."
             name="body"
           ></textarea>
         </fieldset>
