@@ -8,7 +8,7 @@ const props = defineProps(['notes']);
 <template>
   <section class="px-4 py-6">
     <div class="layout-container">
-      <ul class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <template v-for="note in notes">
           <Note :note="note" />
         </template>
